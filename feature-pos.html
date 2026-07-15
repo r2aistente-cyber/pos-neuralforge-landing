@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POS Táctil — POS-NeuralForge</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f0f1a 0%, #1a0f2e 50%, #0f1a2e 100%); color: #e0e0e0; min-height: 100vh; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; }
+  .nav-logo .icon { width: 36px; height: 36px; background: linear-gradient(135deg, #a855f7, #3b82f6); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .nav-back { color: #888; text-decoration: none; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+  .nav-back:hover { color: #fff; }
+
+  .hero-feature { padding: 60px 0 40px; display: flex; gap: 50px; align-items: center; }
+  .hero-text { flex: 1; }
+  .badge { background: rgba(168,85,247,0.15); color: #a855f7; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; display: inline-block; margin-bottom: 16px; }
+  .hero-text h1 { font-size: 42px; font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
+  .hero-text h1 span { background: linear-gradient(135deg, #a855f7, #3b82f6, #e94560); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-text p { font-size: 16px; color: #999; line-height: 1.7; margin-bottom: 20px; }
+  .hero-visual { flex: 1; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 40px; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 64px; }
+
+  .details { padding: 40px 0 60px; }
+  .details h2 { font-size: 24px; font-weight: 700; margin-bottom: 20px; color: #a855f7; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .detail-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 24px; }
+  .detail-card .icon { font-size: 28px; margin-bottom: 10px; }
+  .detail-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .detail-card p { font-size: 14px; color: #999; line-height: 1.6; }
+
+  .steps { margin: 30px 0; }
+  .step { display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num { width: 32px; height: 32px; background: rgba(168,85,247,0.15); color: #a855f7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .step-content { flex: 1; }
+  .step-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .step-content p { font-size: 13px; color: #888; }
+
+  .cta { text-align: center; padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+  .cta h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+  .cta p { color: #888; margin-bottom: 20px; }
+  .btn-p { background: linear-gradient(135deg, #a855f7, #3b82f6); color: #fff; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; display: inline-block; }
+  .btn-s { background: transparent; border: 1px solid rgba(255,255,255,0.15); color: #888; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; display: inline-block; margin-left: 10px; }
+
+  @media (max-width: 768px) { .hero-feature { flex-direction: column; } .grid-2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <nav class="nav">
+    <div class="nav-logo"><div class="icon">🧠</div> NeuralForge</div>
+    <a href="landing-c.html" class="nav-back">← Volver</a>
+  </nav>
+
+  <div class="hero-feature">
+    <div class="hero-text">
+      <div class="badge">🧾 FUNCIÓN PRINCIPAL</div>
+      <h1><span>POS táctil</span> diseñado para el ritmo del bar</h1>
+      <p>Olvídate de menús complicados y pantallas llenas de botones. El POS táctil de NeuralForge está pensado para que un mesero aprenda a usarlo en 5 minutos.</p>
+    </div>
+    <div class="hero-visual">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%">
+        <div style="background:rgba(168,85,247,0.1);border-radius:10px;padding:14px;text-align:center;font-size:13px">🍺 Barra<br><span style="font-size:11px;color:#2ecc71">🟢 Libre</span></div>
+        <div style="background:rgba(59,130,246,0.1);border-radius:10px;padding:14px;text-align:center;font-size:13px">🪑 Mesa 1<br><span style="font-size:11px;color:#f39c12">🟠 $38K</span></div>
+        <div style="background:rgba(233,69,96,0.1);border-radius:10px;padding:14px;text-align:center;font-size:13px">🪑 Mesa 2<br><span style="font-size:11px;color:#e74c3c">🔴 $195K</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details">
+    <h2>🚀 Cómo funciona</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h4>Toca una mesa libre</h4><p>La pantalla muestra el grid con todas tus mesas. Verde = libre. Toca y la cuenta se abre al instante.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h4>Agrega productos</h4><p>Busca por nombre o toca los botones rápidos de lo más vendido. La IA también entiende comandos de voz.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h4>Cobra y divide</h4><p>Split bill, propinas, efectivo o Nequi. Todo en 3 toques.</p></div></div>
+    </div>
+
+    <h2 style="margin-top:40px">⚡ Capacidades</h2>
+    <div class="grid-2">
+      <div class="detail-card"><div class="icon">📊</div><h3>KPI en tiempo real</h3><p>Ventas del día, tabs activas, ticket promedio. Todo visible desde la pantalla principal.</p></div>
+      <div class="detail-card"><div class="icon">🔄</div><h3>Multi-terminal</h3><p>Hasta 3 terminales en el plan Pro. Todos ven las mismas mesas en tiempo real.</p></div>
+      <div class="detail-card"><div class="icon">🔍</div><h3>Quick Add</h3><p>Si un producto no está en el menú, lo creas al vuelo desde la misma pantalla de la mesa.</p></div>
+      <div class="detail-card"><div class="icon">📱</div><h3>Pagos digitales</h3><p>Nequi, Daviplata, efectivo. El cliente paga como quiera.</p></div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>¿Listo para probarlo?</h2>
+    <p>Descarga gratis, pruébalo 15 días sin compromiso.</p>
+    <a href="#" class="btn-p">💻 Probar gratis</a>
+    <a href="landing-c.html" class="btn-s">← Volver a funciones</a>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pago único — POS-NeuralForge</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:linear-gradient(135deg,#0f0f1a 0%,#1a0f2e 50%,#0f1a2e 100%); color:#e0e0e0; min-height:100vh; }
+  .container { max-width:1000px; margin:0 auto; padding:0 24px; }
+  .nav { display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .nav-logo { display:flex; align-items:center; gap:10px; font-weight:700; font-size:20px; }
+  .nav-logo .icon { width:36px; height:36px; background:linear-gradient(135deg,#a855f7,#3b82f6); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; }
+  .nav-back { color:#888; text-decoration:none; font-size:14px; display:flex; align-items:center; gap:6px; }
+  .nav-back:hover { color:#fff; }
+  .hero-feature { padding:80px 0 40px; text-align:center; max-width:700px; margin:0 auto; }
+  .badge { background:rgba(168,85,247,0.15); color:#a855f7; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600; display:inline-block; margin-bottom:16px; }
+  .hero-feature .icon-big { font-size:64px; margin-bottom:16px; }
+  .hero-feature h1 { font-size:40px; font-weight:900; line-height:1.1; margin-bottom:16px; }
+  .hero-feature h1 span { background:linear-gradient(135deg,#a855f7,#3b82f6,#e94560); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .hero-feature p { font-size:16px; color:#999; line-height:1.7; }
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:30px 0; }
+  .card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:16px; padding:24px; }
+  .card .ci { font-size:28px; margin-bottom:8px; }
+  .card h3 { font-size:16px; font-weight:600; margin-bottom:6px; }
+  .card p { font-size:13px; color:#999; line-height:1.6; }
+  .cta { text-align:center; padding:60px 0; border-top:1px solid rgba(255,255,255,0.06); }
+  .cta h2 { font-size:26px; font-weight:800; margin-bottom:8px; }
+  .cta p { color:#888; margin-bottom:20px; }
+  .btn-p { background:linear-gradient(135deg,#a855f7,#3b82f6); color:#fff; padding:14px 32px; border-radius:10px; text-decoration:none; font-weight:600; font-size:16px; display:inline-block; }
+  .btn-s { background:transparent; border:1px solid rgba(255,255,255,0.15); color:#888; padding:14px 32px; border-radius:10px; text-decoration:none; font-weight:600; font-size:16px; display:inline-block; margin-left:10px; }
+  @media (max-width:768px) { .grid-2 { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <nav class="nav">
+    <div class="nav-logo"><div class="icon">🧠</div> NeuralForge</div>
+    <a href="landing-c.html" class="nav-back">← Volver</a>
+  </nav>
+  <div class="hero-feature">
+    <div class="icon-big">💰</div>
+    <div class="badge">FUNCIÓN</div>
+    <h1><span>Pago único</span></h1>
+    <p>Sin suscripciones. Pagas una vez, usas siempre.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card"><div class="ci">✨</div><h3>Fácil de usar</h3><p>Diseñado para que cualquier persona lo use sin entrenamiento.</p></div>
+    <div class="card"><div class="ci">⚡</div><h3>Rápido</h3><p>Todo funciona en menos de 1 segundo. Sin esperas.</p></div>
+    <div class="card"><div class="ci">🔒</div><h3>Seguro</h3><p>Tus datos se quedan en tu PC. No los compartimos con nadie.</p></div>
+    <div class="card"><div class="ci">💰</div><h3>Pago único</h3><p>Sin suscripciones. Pagas una vez y es tuyo.</p></div>
+  </div>
+  <div class="cta">
+    <h2>¿Listo para probarlo?</h2>
+    <p>Descarga gratis, 15 días sin compromiso.</p>
+    <a href="#" class="btn-p">💻 Probar gratis</a>
+    <a href="landing-c.html" class="btn-s">← Volver</a>
+  </div>
+</div>
+</body>
+</html>

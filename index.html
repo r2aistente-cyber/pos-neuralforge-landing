@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POS-NeuralForge — Opción C: Moderno</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a0f2e 50%, #0f1a2e 100%);
+    color: #e0e0e0;
+    line-height: 1.6;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  .nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 0; border-bottom: 1px solid #1a1a2a;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; }
+  .nav-logo .icon { width: 36px; height: 36px; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-links a { color: #888; text-decoration: none; font-size: 14px; font-weight: 500; }
+  .nav-links a:hover { color: #fff; }
+  .nav-btn { background: #ffffff; color: #0f0f1a; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; }
+
+  /* Hero */
+  .hero { padding: 80px 0 60px; text-align: center; }
+  .hero-badge { display: inline-block; background: rgba(168,85,247,0.15); color: #a855f7; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+  .hero h1 { font-size: 52px; font-weight: 900; margin-bottom: 16px; background: linear-gradient(135deg, #a855f7, #3b82f6, #e94560); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1; }
+  .hero p { font-size: 18px; color: #c8c8c8; max-width: 600px; margin: 0 auto 30px; }
+  .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: linear-gradient(135deg, #a855f7, #3b82f6); color: #fff; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; }
+  .btn-secondary { background: transparent; border: 1px solid #333; color: #aaa; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; }
+  .btn-secondary:hover { border-color: #a855f7; color: #e94560; }
+
+  .hero img { max-width: 100%; margin-top: 40px; border-radius: 16px; border: 1px solid #1a1a2a; }
+
+  /* Features */
+  .features { padding: 80px 0; }
+  .section-title { text-align: center; font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+  .section-sub { text-align: center; color: #b8b8b8; font-size: 16px; margin-bottom: 48px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; } .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; } .grid-3 > * { height: 100%; }
+  .feature-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 16px; padding: 32px 24px; display: flex; flex-direction: column; min-height: 240px; flex: 1; }
+  .feature-icon { font-size: 32px; margin-bottom: 14px; }
+  .feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+  .feature-card p { font-size: 14px; color: #b8b8b8; }
+
+  /* Pricing */
+  .pricing { padding: 60px 30px; background: rgba(15,15,26,0.5); border-radius: 24px; margin: 0 0; }
+  .pricing-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 16px; padding: 32px 24px; text-align: center; display: flex; flex-direction: column; min-height: 440px; }
+  .pricing-card.featured { border-color: #a855f7; border-width: 2px; position: relative; transform: scale(1.04); }
+  .pricing-card.featured::before { content: 'MÁS VENDIDO'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #a855f7, #3b82f6); color: #fff; padding: 4px 16px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+  .pricing-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .pricing-sub { font-size: 13px; color: #888; margin-bottom: 16px; }
+  .pricing-price { font-size: 42px; font-weight: 900; margin-bottom: 4px; }
+  .pricing-price span { font-size: 14px; color: #888; font-weight: 400; }
+  .pricing-desc { font-size: 13px; color: #888; margin-bottom: 20px; }
+  .pricing-features { list-style: none; text-align: left; margin-bottom: 24px; flex: 1; }
+  .pricing-features li { padding: 10px 0; font-size: 14px; color: #c0c0c0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .pricing-features li::before { content: "✅ "; }
+  .pricing-btn { display: block; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #ccc; margin-top: auto; }
+  .pricing-btn:hover { border-color: #a855f7; color: #e94560; }
+  .pricing-card.featured .pricing-btn { background: linear-gradient(135deg, #a855f7, #3b82f6); color: #fff; border: none; font-weight: 700; margin-top: auto; }
+
+  /* Testimonials */
+  .testimonials { padding: 80px 0; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .testimonial-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 16px; padding: 32px 24px; display: flex; flex-direction: column; min-height: 240px; flex: 1; }
+  .testimonial-stars { color: #f39c12; margin-bottom: 8px; }
+  .testimonial-text { font-size: 15px; color: #ccc; font-style: italic; margin-bottom: 16px; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .testimonial-avatar { width: 40px; height: 40px; border-radius: 50%; background: #1a3a5c; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .testimonial-name { font-weight: 600; font-size: 14px; }
+  .testimonial-role { font-size: 12px; color: #888; }
+
+  /* CTA */
+  .cta { padding: 80px 0; text-align: center; }
+  .cta h2 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+  .cta p { color: #888; font-size: 16px; margin-bottom: 24px; }
+
+  /* Footer */
+  .footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 40px 0; text-align: center; color: #999; font-size: 13px; }
+  .footer a { color: #888; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .grid-3, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 32px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">
+      <div class="icon">🧠</div>
+      NeuralForge
+    </div>
+    <div class="nav-links">
+      <a href="#">Funciones</a>
+      <a href="#">Precios</a>
+      <a href="#">Blog</a>
+      <a href="#">Contacto</a>
+      
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">🚀 Nuevo — IA integrada sin internet</div>
+    <h1>El POS con IA<br>para tu bar o restaurante</h1>
+    <p>Controla ventas, inventario, menú QR y comandos de voz. 100% offline. Pago único, sin suscripciones.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary">💻 Probar gratis</a>
+      <a href="#" class="btn-secondary">📖 Ver funciones</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <h2 class="section-title">Todo lo que necesitas en un solo lugar</h2>
+    <p class="section-sub">Sin internet, sin mensualidades, sin complicaciones.</p>
+
+    <div class="grid-3">
+      <a href="feature-pos.html" style="text-decoration:none;color:inherit;display:block"><div class="feature-card">
+        <div class="feature-icon">🧾</div>
+        <h3>POS táctil</h3>
+        <p>Grid de mesas, tabs, split bill, propinas. Intuitivo y rápido. Tus meseros aprenden en 5 minutos.</p>
+      </div></a>
+      <a href="feature-ia.html" style="text-decoration:none;color:inherit;display:block"><div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>IA por voz</h3>
+        <p>"Agrega dos aguardientes a la mesa 3" — el sistema te entiende. Manos libres cuando el bar está lleno.</p>
+      </div></a>
+      <a href="feature-inventario.html" style="text-decoration:none;color:inherit;display:block"><div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <h3>Inventario inteligente</h3>
+        <p>Controla tu stock, recibe alertas cuando algo se está agotando. Escanea facturas de proveedores con IA.</p>
+      </div></a>
+      <a href="feature-qr.html" style="text-decoration:none;color:inherit;display:block"><div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Menú QR</h3>
+        <p>El cliente escanea, ve el menú, pide desde su celular. Sin apps, sin contacto.</p>
+      </div></a>
+      <a href="feature-reportes.html" style="text-decoration:none;color:inherit;display:block"><div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Reportes al instante</h3>
+        <p>"¿Cuánto vendí anoche?" — la IA te responde. Ventas, márgenes, productos más vendidos.</p>
+      </div></a>
+      <a href="feature-precios.html" style="text-decoration:none;color:inherit;display:block"><div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3>Pago único</h3>
+        <p>Nada de suscripciones mensuales. Pagas una vez y el software es tuyo para siempre.</p>
+      </div></a>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <h2 class="section-title">Planes simples, sin letra pequeña</h2>
+    <p class="section-sub">Paga una vez. Usa para siempre.</p>
+
+    <div class="grid-3">
+      <div class="pricing-card">
+        <div class="pricing-name">Básico</div>
+        <div class="pricing-sub">Para empezar</div>
+        <div class="pricing-price">$2.5M <span>única vez</span></div>
+        <div class="pricing-desc">El POS esencial para tu negocio</div>
+        <ul class="pricing-features">
+          <li>POS táctil (grid de mesas)</li>
+          <li>Gestión de productos y menú</li>
+          <li>Split bill y propinas</li>
+          <li>Reportes de ventas</li>
+          <li>1 terminal</li>
+        </ul>
+        <a href="#" class="pricing-btn">Saber más</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-name">Pro</div>
+        <div class="pricing-sub">Para crecer</div>
+        <div class="pricing-price">$3.5M <span>única vez</span></div>
+        <div class="pricing-desc">El POS + IA + mucho más</div>
+        <ul class="pricing-features">
+          <li>Todo lo de Básico</li>
+          <li>IA por voz y consultas</li>
+          <li>Inventario inteligente</li>
+          <li>Menú QR</li>
+          <li>Hasta 3 terminales</li>
+          <li>Backup a Google Drive</li>
+        </ul>
+        <a href="#" class="pricing-btn">Saber más</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-name">Premium</div>
+        <div class="pricing-sub">Para expandirte</div>
+        <div class="pricing-price">$5.0M <span>única vez</span></div>
+        <div class="pricing-desc">Todo incluido, sin límites</div>
+        <ul class="pricing-features">
+          <li>Todo lo de Pro</li>
+          <li>Chatbot WhatsApp</li>
+          <li>Múltiples locales</li>
+          <li>Terminales ilimitadas</li>
+          <li>Soporte prioritario</li>
+          <li>Instalación incluida</li>
+        </ul>
+        <a href="#" class="pricing-btn">Saber más</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS DE USO -->
+  <section class="features" style="padding:60px 0">
+    <h2 class="section-title">¿Para quién es?</h2>
+    <p class="section-sub">Diseñado para negocios reales en Colombia.</p>
+    <div class="grid-3">
+      <div class="feature-card" style="text-align:center">
+        <div class="feature-icon">🍺</div>
+        <h3>Bares</h3>
+        <p>Control de mesas, barras, cuentas divididas y comandos de voz para horas pico.</p>
+      </div>
+      <div class="feature-card" style="text-align:center">
+        <div class="feature-icon">🍔</div>
+        <h3>Restaurantes</h3>
+        <p>Comandas a cocina, menú QR, división de cuentas por producto.</p>
+      </div>
+      <div class="feature-card" style="text-align:center">
+        <div class="feature-icon">🏪</div>
+        <h3>Tiendas</h3>
+        <p>Venta rápida, inventario, control de ingresos y gastos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>¿Listo para digitalizar tu negocio?</h2>
+    <p>Descarga el POS gratis, pruébalo 15 días sin compromiso.</p>
+    <a href="#" class="btn-primary">💻 Probar gratis</a>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 POS-NeuralForge — Hecho en Colombia 🇨🇴</p>
+    <p><a href="#">xavier2236@gmail.com</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
